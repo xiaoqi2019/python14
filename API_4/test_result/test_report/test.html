@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>2019年3月测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 120%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">2019年3月测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> xiaoqi</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-03-19 16:09:02</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:05.841035</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 17，通过 15，失败 2，通过率= 88.24%</p>
+
+<p class='description'>2019年的第三份报告</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 88.24% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 2 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 15 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 17 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 16px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>API_4.test_cases.test_cases_new.TestCases: 该类执行测试用例</td>
+    <td class="text-center">17</td>
+    <td class="text-center">15</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',17)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_01: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse in" align="left">
+    <pre>
+    
+pt1_1: 2019-03-19 16:09:02,203-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:02,275-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块register第1条用例：正常注册
+2019-03-19 16:09:02,280-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910200054','pwd':'123456','regname':'xiaoqi'}
+2019-03-19 16:09:02,421-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+2019-03-19 16:09:02,426-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:02,437-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:02,497-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:02,502-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:02,571-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:02,577-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_02: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse in" align="left">
+    <pre>
+    
+pt1_2: 2019-03-19 16:09:02,582-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:02,649-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块register第2条用例：不输入手机号
+2019-03-19 16:09:02,653-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'','pwd':'123456','regname':'xiaoqi'}
+2019-03-19 16:09:02,737-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+2019-03-19 16:09:02,743-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:02,748-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:02,819-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:02,825-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:02,890-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:02,897-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_03: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse in" align="left">
+    <pre>
+    
+pt1_3: 2019-03-19 16:09:02,902-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:02,979-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块register第3条用例：输入10位的手机号
+2019-03-19 16:09:02,984-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'1591029885','pwd':'123456','regname':'xiaoqi'}
+2019-03-19 16:09:03,078-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+2019-03-19 16:09:03,083-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:03,088-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:03,161-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:03,167-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:03,233-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:03,238-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_04: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse in" align="left">
+    <pre>
+    
+pt1_4: 2019-03-19 16:09:03,243-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:03,318-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块register第4条用例：输入12位的手机号
+2019-03-19 16:09:03,322-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'159102988566','pwd':'123456','regname':'xiaoqi'}
+2019-03-19 16:09:03,414-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+2019-03-19 16:09:03,418-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:03,423-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:03,487-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:03,492-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:03,553-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:03,558-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_05: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse in" align="left">
+    <pre>
+    
+pt1_5: 2019-03-19 16:09:03,565-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:03,639-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块register第5条用例：输入已注册过的手机号
+2019-03-19 16:09:03,645-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298856','pwd':'123456','regname':'xiaoqi'}
+2019-03-19 16:09:03,739-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+2019-03-19 16:09:03,743-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:03,749-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:03,821-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:03,827-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:03,885-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:03,889-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_06: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_6'>通过</button>
+    <div id='div_pt1_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_6' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_6'>通过</button>
+    <div id='div_pt1_6' class="collapse in" align="left">
+    <pre>
+    
+pt1_6: 2019-03-19 16:09:03,898-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:04,009-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块login第1条用例：正常登录
+2019-03-19 16:09:04,015-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298856','pwd':'123456'}
+2019-03-19 16:09:04,115-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+2019-03-19 16:09:04,125-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:04,132-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:04,200-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:04,204-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:04,265-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:04,270-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_07: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_7'>通过</button>
+    <div id='div_pt1_7' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_7' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_7'>通过</button>
+    <div id='div_pt1_7' class="collapse in" align="left">
+    <pre>
+    
+pt1_7: 2019-03-19 16:09:04,274-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:04,343-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块login第2条用例：不输入手机号登录
+2019-03-19 16:09:04,349-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'','pwd':'123456'}
+2019-03-19 16:09:04,452-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+2019-03-19 16:09:04,456-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:04,463-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:04,530-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:04,534-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:04,599-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:04,603-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_08: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_8' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_8'>通过</button>
+    <div id='div_pt1_8' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_8' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_8'>通过</button>
+    <div id='div_pt1_8' class="collapse in" align="left">
+    <pre>
+    
+pt1_8: 2019-03-19 16:09:04,607-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:04,682-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块login第3条用例：输入未注册的手机号登录
+2019-03-19 16:09:04,687-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298850','pwd':'123456'}
+2019-03-19 16:09:04,796-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+2019-03-19 16:09:04,801-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:04,804-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:04,867-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:04,872-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:04,958-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:04,966-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_09: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_9' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_9'>通过</button>
+    <div id='div_pt1_9' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_9' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_9'>通过</button>
+    <div id='div_pt1_9' class="collapse in" align="left">
+    <pre>
+    
+pt1_9: 2019-03-19 16:09:04,971-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:05,073-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块login第4条用例：输入错误的手机号登录
+2019-03-19 16:09:05,081-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298859','pwd':'1234567'}
+2019-03-19 16:09:05,175-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+2019-03-19 16:09:05,182-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:05,188-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:05,270-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:05,275-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:05,342-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:05,347-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_10: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_10' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_10'>通过</button>
+    <div id='div_pt1_10' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_10' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_10'>通过</button>
+    <div id='div_pt1_10' class="collapse in" align="left">
+    <pre>
+    
+pt1_10: 2019-03-19 16:09:05,352-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:05,434-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块login第5条用例：不输入密码登录
+2019-03-19 16:09:05,440-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298856','pwd':''}
+2019-03-19 16:09:05,556-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20103', 'data': None, 'msg': '密码不能为空'}
+2019-03-19 16:09:05,570-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:05,577-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:05,636-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:05,640-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:05,700-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:05,704-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_11: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_11' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_11'>通过</button>
+    <div id='div_pt1_11' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_11' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_11'>通过</button>
+    <div id='div_pt1_11' class="collapse in" align="left">
+    <pre>
+    
+pt1_11: 2019-03-19 16:09:05,709-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:05,791-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块recharge第1条用例：正常登录
+2019-03-19 16:09:05,799-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298856','pwd':'123456'}
+2019-03-19 16:09:05,904-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+2019-03-19 16:09:05,912-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:05,919-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:05,979-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:05,984-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:06,043-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:06,049-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_12' class='none'>
+    <td class='failCase'><div class='testcase'>test_cases_12: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_12' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_12'>失败</button>
+    <div id='div_ft1_12' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_12' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_12'>失败</button>
+    <div id='div_ft1_12' class="collapse in" align="left">
+    <pre>
+    
+ft1_12: 2019-03-19 16:09:06,053-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:06,124-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块recharge第2条用例：验证充值功能正常
+2019-03-19 16:09:06,131-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298856','amount':'100'}
+2019-03-19 16:09:06,233-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 1, 'code': '10001', 'data': {'id': 1123563, 'regname': '小蜜蜂', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'mobilephone': '15910298856', 'leaveamount': '1799.95', 'type': '1', 'regtime': '2019-03-11 15:02:04.0'}, 'msg': '充值成功'}
+2019-03-19 16:09:06,238-ERROR-[my_log.py]-xiaoqi-日志信息:用例执行出错，错误信息{'sta[29 chars]ta': {'id': 1123563, 'regname': '小蜜蜂', 'pwd': [151 chars]值成功'} != {'sta[29 chars]ta': None, 'msg': '充值成功'}
++ {'code': '10001', 'data': None, 'msg': '充值成功', 'status': 1}
+- {'code': '10001',
+-  'data': {'id': 1123563,
+-           'leaveamount': '1799.95',
+-           'mobilephone': '15910298856',
+-           'pwd': 'E10ADC3949BA59ABBE56E057F20F883E',
+-           'regname': '小蜜蜂',
+-           'regtime': '2019-03-11 15:02:04.0',
+-           'type': '1'},
+-  'msg': '充值成功',
+-  'status': 1}
+2019-03-19 16:09:06,242-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:06,250-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:06,334-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:06,338-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:06,399-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+Traceback (most recent call last):
+  File "C:\Users\朱泽剑\AppData\Roaming\Python\Python37\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\朱泽剑\PycharmProjects\python14\API_4\test_cases\test_cases_new.py", line 43, in test_cases
+    raise e #处理完异常之后  不要留在家里 要抛出去！ raise e
+  File "C:\Users\朱泽剑\PycharmProjects\python14\API_4\test_cases\test_cases_new.py", line 38, in test_cases
+    self.assertEqual(resp.json(),eval(case['ExceptedResult']))
+AssertionError: {'sta[29 chars]ta': {'id': 1123563, 'regname': '小蜜蜂', 'pwd': [151 chars]值成功'} != {'sta[29 chars]ta': None, 'msg': '充值成功'}
++ {'code': '10001', 'data': None, 'msg': '充值成功', 'status': 1}
+- {'code': '10001',
+-  'data': {'id': 1123563,
+-           'leaveamount': '1799.95',
+-           'mobilephone': '15910298856',
+-           'pwd': 'E10ADC3949BA59ABBE56E057F20F883E',
+-           'regname': '小蜜蜂',
+-           'regtime': '2019-03-11 15:02:04.0',
+-           'type': '1'},
+-  'msg': '充值成功',
+-  'status': 1}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_13: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_13' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_13'>通过</button>
+    <div id='div_pt1_13' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_13' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_13'>通过</button>
+    <div id='div_pt1_13' class="collapse in" align="left">
+    <pre>
+    
+pt1_13: 2019-03-19 16:09:06,404-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:06,471-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块recharge第3条用例：充值不输入手机号
+2019-03-19 16:09:06,476-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'','amount':'0.01'}
+2019-03-19 16:09:06,571-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+2019-03-19 16:09:06,575-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:06,583-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:06,655-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:06,659-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:06,724-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:06,729-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_14' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_14: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_14' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_14'>通过</button>
+    <div id='div_pt1_14' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_14' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_14'>通过</button>
+    <div id='div_pt1_14' class="collapse in" align="left">
+    <pre>
+    
+pt1_14: 2019-03-19 16:09:06,736-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:06,807-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块recharge第4条用例：充值输入未注册的手机号
+2019-03-19 16:09:06,812-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15000000000','amount':'0.01'}
+2019-03-19 16:09:06,917-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20104', 'data': None, 'msg': '此手机号对应的会员不存在'}
+2019-03-19 16:09:06,923-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:06,928-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:06,993-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:07,000-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:07,064-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:07,069-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_15' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_15: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_15' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_15'>通过</button>
+    <div id='div_pt1_15' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_15' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_15'>通过</button>
+    <div id='div_pt1_15' class="collapse in" align="left">
+    <pre>
+    
+pt1_15: 2019-03-19 16:09:07,073-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:07,141-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块recharge第5条用例：充值手机号输入中文
+2019-03-19 16:09:07,145-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'你好','amount':'0.01'}
+2019-03-19 16:09:07,246-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+2019-03-19 16:09:07,253-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:07,258-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:07,320-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:07,324-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:07,385-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:07,390-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_16' class='none'>
+    <td class='failCase'><div class='testcase'>test_cases_16: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_16' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_16'>失败</button>
+    <div id='div_ft1_16' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_16' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_16'>失败</button>
+    <div id='div_ft1_16' class="collapse in" align="left">
+    <pre>
+    
+ft1_16: 2019-03-19 16:09:07,394-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:07,462-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块recharge第6条用例：充值0元
+2019-03-19 16:09:07,468-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298856','amount':'0'}
+2019-03-19 16:09:07,573-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 1, 'code': '10001', 'data': {'id': 1123563, 'regname': '小蜜蜂', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'mobilephone': '15910298856', 'leaveamount': '1799.95', 'type': '1', 'regtime': '2019-03-11 15:02:04.0'}, 'msg': '充值成功'}
+2019-03-19 16:09:07,581-ERROR-[my_log.py]-xiaoqi-日志信息:用例执行出错，错误信息{'sta[29 chars]ta': {'id': 1123563, 'regname': '小蜜蜂', 'pwd': [151 chars]值成功'} != {'sta[29 chars]ta': None, 'msg': '充值成功'}
++ {'code': '10001', 'data': None, 'msg': '充值成功', 'status': 1}
+- {'code': '10001',
+-  'data': {'id': 1123563,
+-           'leaveamount': '1799.95',
+-           'mobilephone': '15910298856',
+-           'pwd': 'E10ADC3949BA59ABBE56E057F20F883E',
+-           'regname': '小蜜蜂',
+-           'regtime': '2019-03-11 15:02:04.0',
+-           'type': '1'},
+-  'msg': '充值成功',
+-  'status': 1}
+2019-03-19 16:09:07,586-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:07,591-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:07,653-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:07,657-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:07,729-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+Traceback (most recent call last):
+  File "C:\Users\朱泽剑\AppData\Roaming\Python\Python37\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\朱泽剑\PycharmProjects\python14\API_4\test_cases\test_cases_new.py", line 43, in test_cases
+    raise e #处理完异常之后  不要留在家里 要抛出去！ raise e
+  File "C:\Users\朱泽剑\PycharmProjects\python14\API_4\test_cases\test_cases_new.py", line 38, in test_cases
+    self.assertEqual(resp.json(),eval(case['ExceptedResult']))
+AssertionError: {'sta[29 chars]ta': {'id': 1123563, 'regname': '小蜜蜂', 'pwd': [151 chars]值成功'} != {'sta[29 chars]ta': None, 'msg': '充值成功'}
++ {'code': '10001', 'data': None, 'msg': '充值成功', 'status': 1}
+- {'code': '10001',
+-  'data': {'id': 1123563,
+-           'leaveamount': '1799.95',
+-           'mobilephone': '15910298856',
+-           'pwd': 'E10ADC3949BA59ABBE56E057F20F883E',
+-           'regname': '小蜜蜂',
+-           'regtime': '2019-03-11 15:02:04.0',
+-           'type': '1'},
+-  'msg': '充值成功',
+-  'status': 1}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_17' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_17: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_17' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_17'>通过</button>
+    <div id='div_pt1_17' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_17' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_17'>通过</button>
+    <div id='div_pt1_17' class="collapse in" align="left">
+    <pre>
+    
+pt1_17: 2019-03-19 16:09:07,735-INFO-[my_log.py]-xiaoqi-日志信息:执行用例前的准备工作！
+2019-03-19 16:09:07,806-INFO-[my_log.py]-xiaoqi-日志信息:开始执行模块recharge第7条用例：充值10.011
+2019-03-19 16:09:07,811-INFO-[my_log.py]-xiaoqi-日志信息:测试数据：{'mobilephone':'15910298856','amount':'10.011'}
+2019-03-19 16:09:07,904-INFO-[my_log.py]-xiaoqi-日志信息:实际结果是：{'status': 0, 'code': '20116', 'data': None, 'msg': '输入金额的金额小数不能超过两位'}
+2019-03-19 16:09:07,909-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:07,914-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:07,973-INFO-[my_log.py]-xiaoqi-日志信息:开始写入值了！
+2019-03-19 16:09:07,977-INFO-[my_log.py]-xiaoqi-日志信息:写入完毕!
+2019-03-19 16:09:08,035-INFO-[my_log.py]-xiaoqi-日志信息:测试通过情况：Pass
+2019-03-19 16:09:08,039-INFO-[my_log.py]-xiaoqi-日志信息:执行用例后的清场工作！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>17</td>
+    <td>15</td>
+    <td>2</td>
+    <td>0</td>
+    <td>通过率：88.24%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>

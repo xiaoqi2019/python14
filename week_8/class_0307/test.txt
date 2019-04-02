@@ -1,0 +1,7 @@
+test_001 (week_8.class_0307.review_unittest.TestAdd) ... ok
+test_002 (week_8.class_0307.review_unittest.TestAdd) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

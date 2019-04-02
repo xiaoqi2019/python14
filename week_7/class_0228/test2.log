@@ -1,0 +1,5 @@
+logging.Formatter('[%(asctime)s]-[%(levelname)s]-%(filename)s-%(name)s-日志信息:%message)s')
+logging.Formatter('[%(asctime)s]-[%(levelname)s]-%(filename)s-%(name)s-日志信息:%message)s')
+logging.Formatter('[%(asctime)s]-[%(levelname)s]-%(filename)s-%(name)s-日志信息:%message)s')
+[2019-03-01 15:44:23,956]-[WARNING]-config_logging_class.py-python15-日志信息:这是一条信息！
+[2019-03-01 15:48:50,816]-[WARNING]-config_logging_class.py-python15-日志信息:这是一条信息1！

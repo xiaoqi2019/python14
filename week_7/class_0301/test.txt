@@ -1,0 +1,13 @@
+test_001 (week_7.class_0301.class_unittest_learn.TestAdd) ... ok
+test_002 (week_7.class_0301.class_unittest_learn.TestAdd) ... ok
+test_003 (week_7.class_0301.class_unittest_learn.TestAdd) ... ok
+test_004 (week_7.class_0301.class_unittest_learn.TestAdd) ... ok
+test_positive_negative (week_7.class_0301.class_unittest_learn.TestSub) ... ok
+test_two_negative (week_7.class_0301.class_unittest_learn.TestSub) ... ok
+test_two_positive (week_7.class_0301.class_unittest_learn.TestSub) ... ok
+test_two_zero (week_7.class_0301.class_unittest_learn.TestSub) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

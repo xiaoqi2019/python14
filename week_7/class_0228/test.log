@@ -1,0 +1,84 @@
+����һ��info��Ϣ
+����һ��warning��Ϣ
+����һ��error��Ϣ
+����һ��critical��Ϣ
+这是一个info信息
+这是一个warning信息
+这是一个error信息
+这是一个critical信息
+这是一个info信息
+这是一个warning信息
+这是一个error信息
+这是一个critical信息
+这是一个info信息
+这是一个warning信息
+这是一个error信息
+这是一个critical信息
+这是一个info信息
+这是一个warning信息
+这是一个error信息
+这是一个critical信息
+这是一个info信息
+这是一个warning信息
+这是一个error信息
+这是一个critical信息
+2019-03-01 14:22:18,790-INFO-logging_class.py-python14-日志信息:这是一个info信息
+2019-03-01 14:22:18,790-WARNING-logging_class.py-python14-日志信息:这是一个warning信息
+2019-03-01 14:22:18,791-ERROR-logging_class.py-python14-日志信息:这是一个error信息
+2019-03-01 14:22:18,791-CRITICAL-logging_class.py-python14-日志信息:这是一个critical信息
+[2019-03-01 14:23:19,695]-[INFO]-logging_class.py-python14-日志信息:这是一个info信息
+[2019-03-01 14:23:19,695]-[WARNING]-logging_class.py-python14-日志信息:这是一个warning信息
+[2019-03-01 14:23:19,696]-[ERROR]-logging_class.py-python14-日志信息:这是一个error信息
+[2019-03-01 14:23:19,696]-[CRITICAL]-logging_class.py-python14-日志信息:这是一个critical信息
+[2019-03-01 14:26:12,037]-[INFO]-logging_class.py-python14-日志信息:这是一个info信息
+[2019-03-01 14:26:12,037]-[WARNING]-logging_class.py-python14-日志信息:这是一个warning信息
+[2019-03-01 14:26:12,037]-[ERROR]-logging_class.py-python14-日志信息:这是一个error信息
+[2019-03-01 14:26:12,038]-[CRITICAL]-logging_class.py-python14-日志信息:这是一个critical信息
+[2019-03-01 14:39:43,511]-[DEBUG]-logging_class.py-python14-日志信息:这是一个debug信息！
+[2019-03-01 14:42:25,407]-[DEBUG]-logging_class.py-python14-日志信息:这是一个debug信息！
+[2019-03-01 14:43:20,770]-[DEBUG]-logging_class.py-python14-日志信息:这是一个debug信息！
+[2019-03-01 14:43:20,772]-[WARNING]-logging_class.py-python14-日志信息:这是一条warning信息！
+[2019-03-01 15:01:38,335]-[DEBUG]-logging_class.py-python14-日志信息:这是一个debug信息！
+[2019-03-01 15:01:38,337]-[WARNING]-logging_class.py-python14-日志信息:这是一条warning信息！
+[2019-03-01 16:17:54,713]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:18:11,909]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:18:11,949]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:18:11,951]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:18:11,953]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:19:20,381]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:19:20,383]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:30:11,343]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:30:11,346]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:30:51,656]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:30:51,659]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:30:51,692]-[INFO]-my_log.py-python14-日志信息:开始写入数据了
+[2019-03-01 16:31:35,527]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:31:35,529]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:31:35,561]-[INFO]-my_log.py-python14-日志信息:开始写入数据了
+[2019-03-01 16:31:55,596]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:31:55,598]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:31:55,628]-[INFO]-my_log.py-python14-日志信息:开始写入数据了
+[2019-03-01 16:31:55,653]-[INFO]-my_log.py-python14-日志信息:数据写入完毕！
+[2019-03-01 16:42:40,764]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:42:40,766]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:42:40,806]-[INFO]-my_log.py-python14-日志信息:开始写入数据了
+[2019-03-01 16:42:40,852]-[INFO]-my_log.py-python14-日志信息:数据写入完毕！
+[2019-03-01 16:43:42,998]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:43:43,000]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:43:43,008]-[INFO]-my_log.py-python14-日志信息:开始写入数据了
+[2019-03-01 16:43:43,020]-[INFO]-my_log.py-python14-日志信息:数据写入完毕！
+[2019-03-01 16:44:56,707]-[INFO]-my_log.py-python14-日志信息:开始读取测试数据了！
+[2019-03-01 16:44:56,710]-[INFO]-my_log.py-python14-日志信息:测试数据读取完毕！
+[2019-03-01 16:44:56,719]-[INFO]-my_log.py-python14-日志信息:开始写入数据了
+[2019-03-01 16:44:56,730]-[INFO]-my_log.py-python14-日志信息:数据写入完毕！
+[2019-03-04 15:22:10,892]-[DEBUG]-my_log.py-python14-日志信息:这是一个debug信息！
+[2019-03-04 15:22:10,894]-[WARNING]-my_log.py-python14-日志信息:这是一条warning信息！
+[2019-03-07 15:31:22,554]-[DEBUG]-my_log.py-python14-日志信息:这是一个debug信息！
+[2019-03-07 15:31:22,556]-[INFO]-my_log.py-python14-日志信息:这是一条info信息！
+[2019-03-07 15:31:22,558]-[WARNING]-my_log.py-python14-日志信息:这是一条warning信息！
+[2019-03-07 15:34:22,738]-[DEBUG]-my_log.py-python14-日志信息:这是一个debug信息！
+[2019-03-07 15:34:22,740]-[INFO]-my_log.py-python14-日志信息:这是一条info信息！
+[2019-03-07 15:34:22,741]-[WARNING]-my_log.py-python14-日志信息:这是一条warning信息！
+[2019-03-07 16:32:48,808]-[DEBUG]-my_log.py-python14-日志信息:这是一个debug信息！
+[2019-03-07 16:32:48,810]-[INFO]-my_log.py-python14-日志信息:这是一条info信息！
+[2019-03-07 16:32:48,811]-[WARNING]-my_log.py-python14-日志信息:这是一条warning信息！
