@@ -1,6 +1,9 @@
 #-*-coding:utf-8-*-
-import unittest
 
+import sys
+sys.path.append('./')
+print(sys.path)
+import unittest
 from API_6.test_cases import test_register
 from API_6.test_cases import test_login
 from API_6.test_cases import test_recharge
