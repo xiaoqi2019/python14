@@ -9,7 +9,7 @@ conf_path=os.path.join(project_path,'conf','test.conf')
 #日志输出渠道
 log_path=os.path.join(project_path,'test_result','test_log','test.log')
 #测试报告路径
-report_path=os.path.join(project_path,'test_result','test_report','test.html')
+report_path=os.path.join(project_path,'test_result','test_report','report.html')
 #新的配置文件路径
 new_conf_path=os.path.join(project_path,'conf','test_new.conf')
 
